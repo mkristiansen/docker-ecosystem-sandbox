@@ -13,23 +13,28 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = 'my/parallels/ubuntu-15.04'
+  config.landrush.enabled = true
+  config.landrush.tld = 'lf'
 
   config.vm.define 'ducp-0' do |ducp0|
     # Create a private network, which allows host-only access to the machine
     # using a specific IP.
     ducp0.vm.network "private_network", ip: "192.168.33.10"
+    ducp0.vm.hostname = 'ducp0.lf'
   end
 
   config.vm.define 'ducp-1' do |ducp1|
     # Create a private network, which allows host-only access to the machine
     # using a specific IP.
     ducp1.vm.network "private_network", ip: "192.168.33.11"
+    ducp1.vm.hostname = 'ducp1.lf'
   end
 
   config.vm.define 'ducp-2' do |ducp2|
     # Create a private network, which allows host-only access to the machine
     # using a specific IP.
     ducp2.vm.network "private_network", ip: "192.168.33.12"
+    ducp2.vm.hostname = 'ducp2.lf'
   end
 
   # Disable automatic box update checking. If you disable this, then
